@@ -17,6 +17,8 @@ jobs:
         with:
           python-version: '3.14'
       - name: 固定版のテスト依存を取得
-        run: python -m pip --isolated install --only-binary=:all: --index-url https://pypi.org/simple -r test-first/requirements.txt
+        run: >-
+          python -m pip --isolated install --only-binary=:all:
+          --index-url https://pypi.org/simple -r test-first/requirements.txt
       - name: 修正前の想定された失敗と修正後の成功を検証
         run: python test-first/check.py
